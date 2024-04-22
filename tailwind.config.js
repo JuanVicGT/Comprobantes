@@ -3,12 +3,15 @@ import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'class',
+
     content: [
-		'./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-		 './storage/framework/views/*.php',
-		 './resources/views/**/*.blade.php',
-		 "./vendor/robsontenorio/mary/src/View/Components/**/*.php"
-	],
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+        "./vendor/robsontenorio/mary/src/View/Components/**/*.php",
+        "./app/Livewire/**/*.php"
+    ],
 
     theme: {
         extend: {
@@ -19,7 +22,7 @@ export default {
     },
 
     plugins: [
-		forms,
-		require("daisyui")
-	],
+        forms,
+        require("daisyui")
+    ],
 };

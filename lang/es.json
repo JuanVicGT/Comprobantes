@@ -79,5 +79,21 @@
     "Showing :init to :end from :count results": "Mostrando :init al :end de :count resultados",
     "name": "Nombre",
     "dark-mode": "Modo oscuro",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "list-res": "Listar recibos",
+    "list-docs": "Listar documentos",
+    "list-customer": "Listar clientes",
+    "new-customer": "Agregar cliente",
+    "customers": "Clientes",
+    "customer": "Cliente",
+    "home": "Inicio",
+    "search": "Buscar",
+    "settings": "Configuración",
+    "dpi": "DPI",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "saved-successfully": "Guardado correctamente",
+    "are-you-sure?": "¿Está seguro?",
+    "press-confirm-to-delete": "Presione confirmar para eliminar el registro.",
+    "deleted-successfully": "Eliminado correctamente"
 }
