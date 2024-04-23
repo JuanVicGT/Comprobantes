@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -30,6 +31,18 @@ class Document extends Model
         'total',
         'fecha'
     ];
+
+    /**
+     * The customer function returns the relationship between the current model and the Customer model
+     * using the BelongsTo relationship.
+     * 
+     * @return BelongsTo A BelongsTo relationship is being returned. This method defines a relationship
+     * where the current model belongs to a Customer model using the 'customer_id' foreign key.
+     */
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 
     /**
      * The lines() function returns a HasMany relationship for DocumentLine objects related to the

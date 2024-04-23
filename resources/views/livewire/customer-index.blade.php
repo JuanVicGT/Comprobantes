@@ -5,7 +5,7 @@
                 class="border-gray-500" />
         </x-slot:middle>
         <x-slot:actions>
-            <x-mary-button icon="o-plus" class="btn-success" @click="$wire.showModal()" />
+            <x-mary-button icon="o-plus" class="btn-success" wire:click="showModal()" spinner />
         </x-slot:actions>
     </x-mary-header>
 

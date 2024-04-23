@@ -1,3 +1,3 @@
 <x-layouts.app>
-    <livewire:customer-index />
+    <livewire:document-index />
 </x-layouts.app>

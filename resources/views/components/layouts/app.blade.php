@@ -35,6 +35,8 @@
 
     {{--  TOAST area --}}
     <x-mary-toast />
+
+    {{-- Scripts area --}}
     @livewireScripts
 </body>
 

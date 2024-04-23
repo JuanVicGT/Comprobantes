@@ -20,6 +20,7 @@ class CustomerIndex extends Component
     public bool $customerModal = false;
     public bool $deleteModal = false;
     public bool $editMode = false;
+    public bool $self = false;
 
     // Filters
     public int $pagination = 10;
@@ -30,6 +31,7 @@ class CustomerIndex extends Component
     {
         // Limpiamos el formulario
         $this->form->reset();
+        $this->resetValidation();
 
         $customer = Customer::find($id);
         $this->form->setCustomer($customer);
@@ -39,6 +41,7 @@ class CustomerIndex extends Component
     public function showModal()
     {
         $this->form->reset();
+        $this->resetValidation();
         $this->editMode = false;
         $this->customerModal = true;
     }
@@ -52,6 +55,7 @@ class CustomerIndex extends Component
     {
         // Limpiamos el formulario
         $this->form->reset();
+        $this->resetValidation();
 
         $customer = Customer::find($id);
         $this->form->setCustomer($customer);
