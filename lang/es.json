@@ -95,5 +95,9 @@
     "saved-successfully": "Guardado correctamente",
     "are-you-sure?": "¿Está seguro?",
     "press-confirm-to-delete": "Presione confirmar para eliminar el registro.",
-    "deleted-successfully": "Eliminado correctamente"
+    "deleted-successfully": "Eliminado correctamente",
+    "code": "Código",
+    "qty": "Cantidad",
+    "amount": "Monto",
+    "description": "Descripción"
 }

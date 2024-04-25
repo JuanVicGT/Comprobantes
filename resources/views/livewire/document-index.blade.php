@@ -37,7 +37,7 @@
     {{-- Modal to create new doc --}}
     <x-mary-modal wire:model="docModal" class="backdrop-blur">
         <x-mary-form wire:submit="save">
-            <x-mary-input label="{{ __('name') }}" wire:model="form.nombre" required />
+            <x-mary-input label="{{ __('name') }}" wire:model="form.nombre" required class="autofocus"/>
             <x-mary-input label="{{ __('dpi') }}" wire:model="form.dpi" icon="o-identification" required />
 
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -45,13 +45,17 @@
                     <div class="col-span-1 sm:col-span-2">
                         <x-mary-input label="{{ __('code') }}" wire:model="form.codigo" readonly />
                     </div>
-                    <div class="col-span-1 sm:col-span-5">
-                        <x-mary-input label="{{ __('description') }}" wire:model="form.descripcion" readonly />
+                    <div class="col-span-1 sm:col-span-2">
+                        <x-mary-input label="{{ __('qty') }}" wire:model="form.cantidad" readonly
+                            class="col-span-1" />
+                    </div>
+                    <div class="col-span-1 sm:col-span-3">
+                        <x-mary-input label="{{ __('amount') }}" wire:model="form.monto" readonly
+                            class="col-span-1" />
                     </div>
                 </div>
-                <x-mary-input label="{{ __('qty') }}" wire:model="form.cantidad" readonly class="col-span-1" />
-                <x-mary-input label="{{ __('amount') }}" wire:model="form.monto" readonly class="col-span-1" />
             </div>
+            <x-mary-input label="{{ __('description') }}" wire:model="form.descripcion" readonly />
 
             <x-slot:actions>
                 <x-mary-button label="{{ __('cancel') }}" @click="$wire.docModal = false" />
