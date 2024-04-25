@@ -17,6 +17,7 @@ class DocumentIndex extends Component
     public DocumentForm $form;
 
     // Properties
+    public array $expanded = [];
     public bool $docModal = false;
 
     // Filters
@@ -44,7 +45,7 @@ class DocumentIndex extends Component
 
     protected function getDocuments()
     {
-        return Document::with('lines')
+        return Document::with('customer', 'lines')
             ->withAggregate('customer', 'nombre')
             ->orderBy(...array_values($this->sortBy))
             ->paginate($this->pagination);
@@ -52,6 +53,8 @@ class DocumentIndex extends Component
 
     public function render()
     {
+        $this->form->setDefaultValues();
+
         $headers = [
             ['key' => 'id', 'label' => '#', 'class' => 'bg-red-500/20 w-1'],
             ['key' => 'customer.nombre', 'label' => __('customer'), 'sortBy' => 'customer_nombre'],

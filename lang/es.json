@@ -101,5 +101,6 @@
     "amount": "Monto",
     "description": "Descripción",
     "date": "Fecha",
-    "total": "Total"
+    "total": "Total",
+    "number": "Número"
 }
