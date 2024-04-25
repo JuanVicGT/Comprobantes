@@ -99,5 +99,7 @@
     "code": "Código",
     "qty": "Cantidad",
     "amount": "Monto",
-    "description": "Descripción"
+    "description": "Descripción",
+    "date": "Fecha",
+    "total": "Total"
 }

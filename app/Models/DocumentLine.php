@@ -24,7 +24,6 @@ class DocumentLine extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
         'doc_id',
         'price',
         'cantidad',

@@ -37,7 +37,7 @@
     {{-- Modal to create new doc --}}
     <x-mary-modal wire:model="docModal" class="backdrop-blur">
         <x-mary-form wire:submit="save">
-            <x-mary-input label="{{ __('name') }}" wire:model="form.nombre" required class="autofocus"/>
+            <x-mary-input label="{{ __('name') }}" wire:model="form.nombre" required class="autofocus" />
             <x-mary-input label="{{ __('dpi') }}" wire:model="form.dpi" icon="o-identification" required />
 
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -55,7 +55,8 @@
                     </div>
                 </div>
             </div>
-            <x-mary-input label="{{ __('description') }}" wire:model="form.descripcion" readonly />
+            <x-mary-textarea label="{{ __('description') }}" wire:model="form.descripcion" rows="5" inline
+                readonly />
 
             <x-slot:actions>
                 <x-mary-button label="{{ __('cancel') }}" @click="$wire.docModal = false" />

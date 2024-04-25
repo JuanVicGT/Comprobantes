@@ -31,6 +31,15 @@ class DocumentIndex extends Component
 
     public function save()
     {
+        $this->form->store();
+
+        $this->docModal = false;
+
+        $this->success(
+            title: __('saved-successfully'),
+            icon: 'o-check-circle',
+            position: 'toast-top toast-center'
+        );
     }
 
     protected function getDocuments()
