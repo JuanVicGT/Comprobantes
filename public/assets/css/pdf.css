@@ -2,6 +2,20 @@
     font-family: Verdana, Arial, sans-serif;
 }
 
+table {
+    font-size: x-small;
+    background-color: red;
+}
+
+td {
+    background-color: skyblue;
+}
+
+tfoot tr td {
+    font-weight: bold;
+    font-size: x-small;
+}
+
 .invoice {
     border: 1px solid black;
     padding: 10px;
@@ -12,13 +26,15 @@
     -o-border-radius: 20px;
 }
 
-table {
-    font-size: x-small;
+.document-title {
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-tfoot tr td {
-    font-weight: bold;
-    font-size: x-small;
+.company-info {
+    text-align: right;
+    vertical-align: top;
 }
 
 .table-title {
@@ -31,5 +47,4 @@ tfoot tr td {
 
 .logo {
     width: 100px;
-    height: 100px;
 }

@@ -1,44 +1,45 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
-    <title>Invoice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ __('Receipt') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ public_path('assets/css/pdf.css') }}">
 </head>
 
 <body>
-
     <div class="invoice">
+
+        <h2 class="document-title">{{ __('Receipt') }}</h2>
 
         <table width="100%">
             <tr>
-                <td valign="top"><img src="{{ public_path('assets/img/no_image.jpg') }}" alt="Logo" width="150" />
+                <td valign="top">
+                    <img src="{{ public_path('assets/img/no_image.jpg') }}" alt="Logo" class="logo" />
                 </td>
-                <td align="right">
+                <td class="company-info">
                     <h3>Shinra Electric power company</h3>
-                    <pre>
-                Company representative name
-                Company address
-                Tax ID
-                phone
-                fax
-            </pre>
+                    <p>
+                        asd
+                    </p>
                 </td>
             </tr>
-
         </table>
 
+        <br>
+
+        {{-- Customer data --}}
         <table width="100%">
             <tr>
                 <td><strong>From:</strong> Linblum - Barrio teatral</td>
                 <td><strong>To:</strong> Linblum - Barrio Comercial</td>
             </tr>
-
         </table>
 
-        <br />
+        <br>
 
         <table width="100%">
             <thead class="table-title">
@@ -94,7 +95,6 @@
         </table>
 
     </div>
-
 </body>
 
 </html>
