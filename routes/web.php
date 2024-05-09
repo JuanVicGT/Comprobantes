@@ -1,9 +1,12 @@
 <?php
 
+use App\Exports\ExportDocument;
 use App\Http\Controllers\Backend;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\CustomerIndex;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +20,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('pdf', function () {
+        $pdf = Pdf::loadView('exports.pdf');
+        // return view('exports.pdf');
+        return $pdf->stream('invoice.pdf');
+    });
 
     Route::controller(Backend\CustomerController::class)->prefix('customer/')
         ->group(function () {
