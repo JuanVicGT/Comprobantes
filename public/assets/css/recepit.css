@@ -1,0 +1,75 @@
+* {
+    font-family: Verdana, Arial, sans-serif;
+    padding: 0;
+}
+
+table {
+    font-size: x-small;
+}
+
+tfoot tr td {
+    font-weight: bold;
+    font-size: x-small;
+}
+
+.document-title {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: x-large;
+}
+
+.logo {
+    width: 100px;
+}
+
+.company-name {
+    font-size: x-small;
+}
+
+.company-table {
+    text-align: right;
+    vertical-align: middle;
+}
+
+.company-info {
+    font-weight: bold;
+    font-size: large;
+}
+
+.no {
+    color: red;
+}
+
+.table-title {
+    background-color: lightblue
+}
+
+.gray {
+    background-color: lightgray
+}
+
+.rounded {
+    border: 1px solid black;
+    padding: 0 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.rounded-square {
+    border: 1px solid black;
+    padding: 0 75px;
+}
+
+.signature {
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.border-bottom {
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
