@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('document_lines', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo', 30);
-            $table->string('descripcion');
+            $table->string('nombre_compania');
+            $table->string('nombre_representante');
+            $table->string('concepto');
+            $table->string('img_logo')->nullable();
+            $table->string('img_icono')->nullable();
+            $table->string('codigo');
             $table->float('precio', 6);
             $table->float('cantidad', 2);
             $table->timestamps();
-
-            $table->unsignedBigInteger('doc_id');
-            $table->foreign('doc_id')->references('id')->on('documents');
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('document_lines');
+        Schema::dropIfExists('settings');
     }
 };

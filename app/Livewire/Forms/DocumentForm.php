@@ -5,6 +5,7 @@ namespace App\Livewire\Forms;
 use App\Models\Customer;
 use App\Models\Document;
 use App\Models\DocumentLine;
+use App\Models\Setting;
 use Illuminate\Validation\Rule;
 use Livewire\Form;
 
@@ -24,14 +25,20 @@ class DocumentForm extends Form
     public $fecha;
     public $monto; // Solo para la vista
 
-    public function setDefaultValues()
+    public function setDefaultValues(): bool
     {
-        $this->total = 150;
-        $this->cantidad = 1;
-        $this->codigo = 'C01';
-        $this->descripcion = 'SUBSIDIO MUNICIPAL PROGRAMA APOYO AL AGRICULTOR CHIQUIMULTECO';
-        $this->monto = 'Q ' . number_format($this->total, 2);
+        $setting = Setting::first();
+        if (empty($setting->id))
+            return false;
+
+        $this->cantidad = $setting->cantidad;
+        $this->codigo = $setting->codigo;
+        $this->descripcion = $setting->concepto;
+        $this->monto = 'Q ' . number_format($setting->precio, 2);
         $this->fecha = date('d-m-Y');
+        $this->total = bcmul($setting->precio, $setting->cantidad, 2);
+
+        return true;
     }
 
     public function rules()
@@ -46,6 +53,24 @@ class DocumentForm extends Form
                 'required',
                 'size:13',
                 Rule::unique('customers'),
+            ],
+            'descripcion' => [
+                'string',
+                'required',
+            ],
+            'monto' => [
+                'required',
+            ],
+            'cantidad' => [
+                'integer',
+                'required',
+            ],
+            'codigo' => [
+                'string',
+                'required',
+            ],
+            'fecha' => [
+                'required',
             ],
         ];
     }

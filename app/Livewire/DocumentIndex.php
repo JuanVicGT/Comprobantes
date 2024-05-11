@@ -53,7 +53,15 @@ class DocumentIndex extends Component
 
     public function render()
     {
-        $this->form->setDefaultValues();
+        $hasEstablished = $this->form->setDefaultValues();
+
+        if (!$hasEstablished) {
+            $this->error(
+                title: __('not-have-settings'),
+                icon: 'o-x-circle',
+                position: 'toast-top toast-center'
+            );
+        }
 
         $headers = [
             ['key' => 'id', 'label' => '#', 'class' => 'bg-red-500/20 w-1'],

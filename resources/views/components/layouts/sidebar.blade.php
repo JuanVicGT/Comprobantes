@@ -6,6 +6,6 @@
         <x-mary-menu-item title="{{ __('customers') }}" icon="o-user-group" link="{{ route('index.customer') }}" />
         <x-mary-menu-item title="{{ __('list-docs') }}" icon="c-clipboard-document-check"
             link="{{ route('index.document') }}" />
-        <x-mary-menu-item title="{{ __('settings') }}" icon="o-cog-6-tooth" link="###" />
+        <x-mary-menu-item title="{{ __('settings') }}" icon="o-cog-6-tooth" link="{{ route('edit.setting') }}" />
     </x-mary-menu>
 </x-slot:sidebar>

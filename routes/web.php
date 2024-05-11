@@ -22,9 +22,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('pdf', function () {
-        $pdf = Pdf::loadView('exports.pdf');
+        $pdf = Pdf::loadView('exports.receipt');
         // return view('exports.pdf');
         return $pdf->stream('invoice.pdf');
+    });
+
+    Route::controller(Backend\SettingController::class)->group(function () {
+        // Views
+        Route::get('/EditSetting', 'index')->name('edit.setting');
+        Route::patch('/StoreSetting', 'store')->name('store.setting');
+        Route::post('/UpdateSetting', 'update')->name('update.setting');
     });
 
     Route::controller(Backend\CustomerController::class)->prefix('customer/')
