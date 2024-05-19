@@ -7,7 +7,7 @@
             </label>
 
             {{-- Brand --}}
-            <div>App</div>
+            <div>@yield('nav-title')</div>
         </x-slot:brand>
 
         @if ($user = auth()->user())
