@@ -14,8 +14,10 @@ class SettingController extends Controller
     public function index()
     {
         //
-        $setting = new Setting();
-        $setting->nombre_representante = "SAPOTOCIENTOS";
+        $setting = Setting::first();
+        if ($setting === null)
+            $setting = new Setting();
+
         return view('backend.setting.EditSetting', compact('setting'));
     }
 

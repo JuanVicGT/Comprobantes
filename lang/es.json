@@ -129,5 +129,14 @@
     "To Sr.": "RECIBO DEL SR.(A)",
     "Amount in letters": "MONTO EN LETRAS",
     "Amount of": "MONTO DE",
-    "Concept of": "CONCEPTO DE"
+    "Concept of": "CONCEPTO DE",
+    "Company Name": "Nombre de la Empresa",
+    "Representative Name": "Representante Legal",
+    "Concept": "Concepto",
+    "Code": "Código",
+    "Quantity": "Cantidad",
+    "Image Icon": "Imagen para el icono",
+    "Image Logo": "Imagen para el logo",
+    "Company Section": "Sección de la Empresa",
+    "Item Section": "Sección del Item"
 }

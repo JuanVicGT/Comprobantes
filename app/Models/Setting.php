@@ -20,7 +20,7 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre_compania', 'nombre_representante', 'concepto', 'codigo', 'precio', 'img_logo', 'img_icono'];
+    protected $fillable = ['nombre_compania', 'nombre_representante', 'concepto', 'cantidad', 'codigo', 'precio', 'img_logo', 'img_icono'];
 
     public function clear()
     {
