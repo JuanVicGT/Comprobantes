@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\Document;
 use App\Models\DocumentLine;
 use App\Models\Setting;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Livewire\Form;
 
@@ -78,11 +79,17 @@ class DocumentForm extends Form
     public function store()
     {
         $this->validate();
+        DB::beginTransaction();
 
         $customer = Customer::create([
             'nombre' => $this->nombre,
             'dpi' => $this->dpi
         ]);
+
+        if (!$customer->id) {
+            DB::rollBack();
+            return;
+        }
 
         $lastNumber = Document::select('numero')->orderBy('numero', 'desc')->first()->numero ?? 0;
 
@@ -93,16 +100,27 @@ class DocumentForm extends Form
             'fecha' => date('Y-m-d', strtotime($this->fecha))
         ]);
 
-        DocumentLine::create(
+        if (!$doc->id) {
+            DB::rollBack();
+            return;
+        }
+
+        $docLine = DocumentLine::create(
             [
                 'doc_id' => $doc->id,
-                'price' => $this->total,
+                'precio' => $this->total,
                 'cantidad' => $this->cantidad,
                 'codigo' => $this->codigo,
                 'descripcion' => $this->descripcion
             ]
         );
 
+        if (!$docLine->id) {
+            DB::rollBack();
+            return;
+        }
+
+        DB::commit();
         $this->reset();
     }
 }

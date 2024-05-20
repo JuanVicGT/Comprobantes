@@ -25,7 +25,7 @@ class DocumentLine extends Model
      */
     protected $fillable = [
         'doc_id',
-        'price',
+        'precio',
         'cantidad',
         'codigo',
         'descripcion'
