@@ -82,6 +82,7 @@
     "logout": "Cerrar sesión",
     "list-res": "Listar recibos",
     "list-docs": "Listar documentos",
+    "Documents": "Documentos",
     "list-customer": "Listar clientes",
     "new-customer": "Agregar cliente",
     "customers": "Clientes",
@@ -139,5 +140,6 @@
     "Image Logo": "Imagen para el logo",
     "Company Section": "Sección de la Empresa",
     "Item Section": "Sección del Item",
-    "Default Name": "Nombre predeterminado"
+    "Default Name": "Nombre predeterminado",
+    "Developed with love, by a student learning a new technology": "Desarrollado con amor, por un estudiante aprendiendo una nueva tecnología"
 }

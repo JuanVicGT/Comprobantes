@@ -4,8 +4,11 @@ use App\Exports\ExportDocument;
 use App\Http\Controllers\Backend;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\CustomerIndex;
+use App\Models\Document;
+use App\Models\Setting;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
+use Luecano\NumeroALetras\NumeroALetras;
 use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
@@ -22,7 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('pdf', function () {
-        $pdf = Pdf::loadView('exports.receipt');
+        $formatter = new NumeroALetras();
+
+        $pdf = Pdf::loadView('exports.document-export', [
+            'document' => Document::first()->load('customer', 'lines'),
+            'setting' => Setting::first(),
+            'total_in_letters' => $formatter->toWords(125, 2)
+        ]);
         // return view('exports.pdf');
         return $pdf->stream('invoice.pdf');
     });

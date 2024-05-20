@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('descripcion');
             $table->float('precio', 6);
             $table->float('cantidad', 2);
+            $table->float('total', 6);
             $table->timestamps();
 
             $table->unsignedBigInteger('doc_id');

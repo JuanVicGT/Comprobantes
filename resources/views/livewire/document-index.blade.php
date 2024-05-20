@@ -1,5 +1,5 @@
 <div>
-    <x-mary-header title="{{ __('documents') }}">
+    <x-mary-header title="{{ __('Documents') }}">
         <x-slot:middle class="!justify-end">
             <x-mary-input icon="o-magnifying-glass" wire:model.live='search' placeholder="{{ __('search') }}..."
                 class="border-gray-500" />
@@ -31,6 +31,10 @@
             <h2 class="text-xl font-bold inline">
                 {{ $header['label'] }}
             </h2>
+        @endscope
+
+        @scope('actions', $document)
+            <x-mary-button icon="o-printer" spinner class="btn-sm btn-info" wire:click="exportPDF({{ $document->id }})" />
         @endscope
 
         @scope('cell_total', $document)

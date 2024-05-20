@@ -2,11 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\DocumentForm;
 use App\Models\Document;
+use App\Models\Setting;
 use Livewire\Component;
-use Livewire\WithPagination;
 use Mary\Traits\Toast;
+use Livewire\WithPagination;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Livewire\Forms\DocumentForm;
+use Luecano\NumeroALetras\NumeroALetras;
 
 class DocumentIndex extends Component
 {
@@ -77,5 +80,22 @@ class DocumentIndex extends Component
                 'headers' => $headers
             ]
         );
+    }
+
+    public function exportPDF(int $id)
+    {
+        $formatter = new NumeroALetras();
+
+        $setting = Setting::first();
+        $document = Document::find($id)->load('customer', 'lines');
+
+        $pdf = Pdf::loadView('exports.document-export', [
+            'document' => $document,
+            'setting' => $setting,
+            'total_in_letters' => $formatter->toWords($document->total, 2)
+        ]);
+        return response()->streamDownload(function () use ($pdf) {
+            echo  $pdf->stream();
+        }, "{$document->customer->nombre}-{$document->fecha}.pdf");
     }
 }

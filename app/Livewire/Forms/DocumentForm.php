@@ -96,7 +96,7 @@ class DocumentForm extends Form
         $doc = Document::create([
             'customer_id' => $customer->id,
             'numero' => ++$lastNumber,
-            'total' => $this->total,
+            'total' => $this->total * $this->cantidad,
             'fecha' => date('Y-m-d', strtotime($this->fecha))
         ]);
 
@@ -111,7 +111,8 @@ class DocumentForm extends Form
                 'precio' => $this->total,
                 'cantidad' => $this->cantidad,
                 'codigo' => $this->codigo,
-                'descripcion' => $this->descripcion
+                'descripcion' => $this->descripcion,
+                'total' => $this->total * $this->cantidad
             ]
         );
 

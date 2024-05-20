@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int id
  * @property int doc_id
  * @property float price
+ * @property float total
  * @property float cantidad
  * @property string codigo
  * @property string descripcion
@@ -24,10 +25,11 @@ class DocumentLine extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'total',
         'doc_id',
+        'codigo',
         'precio',
         'cantidad',
-        'codigo',
         'descripcion'
     ];
 
